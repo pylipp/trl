@@ -2,31 +2,29 @@
 
 A dumb trello cli with shortcuts.
 
+This is a **fork** with features such as
+- `bm` command: show board members
+
+and fixes such as
+- handle labels without color
+
 
 ## Setup
 
-Get the repo and run `pipenv install` in it.
-
-You don't have pipenv installed?
-
-([Here](https://pipenv.readthedocs.io/en/latest/install/#pragmatic-installation-of-pipenv)
-is how you can get it, but usually is a `pip install --user pipenv`)
-
-Yeah, I know you want a binary, I will package this thing, bear it for now.
-
+```sh
+git clone https://github.com/pylipp/pytrl
+cd pytrl
+python -m venv .venv
+.venv/bin/activate
+pip install -r requirements.txt
+python trullo.py
+```
 Authenticate yourself by putting these variables in you environment:
 
     export TRELLO_API_KEY=<api_key>
     export TRELLO_TOKEN=<your_token>
 
 Go get them on [trello](https://trello.com/app-key)!
-
-Now link the `trl` script in your `PATH`.
-It's a bash script that wraps the underneath python call.
-Feel free to hack it or use something else.
-
-Aaaand, that's it, you are good to go.
-
 
 ## Usage
 
@@ -45,6 +43,12 @@ Here is the usage (check `trl -h` too):
     trl ll
         shows only the board's lists
 
+    trl lb
+        shows the board's labels
+
+    trl bm
+        shows the board's members
+
     trl c <card_shortcut> [o | m <list_shortcut> | e]
         shows the card infos
         with o it opens the card shortUrl with your default browser
@@ -56,6 +60,7 @@ Here is the usage (check `trl -h` too):
 
     trl g <api_path>
         make a direct api call adding auth params automatically (for debugging/hacking purpose)
+        Cf. [REST API reference](https://developer.atlassian.com/cloud/trello/rest)
 
 ## Shortcuts
 
