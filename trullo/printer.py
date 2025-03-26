@@ -62,6 +62,7 @@ class Printer:
         formatted_desc = '\t' + str(d['desc']).replace('\n', '\n\t')
 
         print(f'{d["shortUrl"]}')
+        print(f'ID: {d["id"]}')
         print('-------------------------------------')
         print(f'{d["name"]}')
         if len(d['labels']) > 0:
